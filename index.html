@@ -5,59 +5,514 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <style>
-      @font-face {
-        font-family: "Khema";
-        src: url("./fonts/khema.otf");
-      }
-      @font-face {
-        font-family: "Preeti";
-        src: url("./fonts/preeti.otf");
-      }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vesper+Libre:wght@400;500;700;900&display=swap" rel="stylesheet">
 
-      .heading {
-        font-family: Arial, Helvetica, sans-serif;
-      }
-
-      .khema {
-        font-family: "Khema", serif;
-        margin: 5px;
-      }
-      .preeti {
-        font-family: "Preeti", serif;
-        margin: 5px;
-      }
-      h2 {
-        margin: 0;
-      }
-      .khema-wrapper {
-        padding: 3rem;
-        border: 1px solid red;
-        display: inline-block;
-        border-radius: 8px;
-      }
-      .footer {
-        margin-top: 1rem;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   </head>
   <body>
-    <h4 class="heading">Khema Script in Web[Demo]</h4>
+    <div class="container my-5">
+      <h1 class="heading">Tamu Language Font</h1>
 
-    <div class="khema-wrapper">
-      <h1 class="khema">
-        TifhfnR
-      </h1>
-      <h2 class="preeti">
-        नमस्ते
-      </h2>
-      <h2>
-        Hello
-      </h2>
+      <!-- vovels -->
+      <h3 class="heading mt-5"><span class="khema">dfOklVU</span>Vowels <span class="vesper">स्वरवर्ण</span></h3>
+      <div class="vowels-container row">
+        <div class="col-md-4">
+          <table class="table table-bordered border-primary table-responsive">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Pronounce</th>
+              <th scope="col">Khema</th>
+              <th scope="col">Keyboard</th>
+            </tr>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td class="vesper">अमाँ</td>
+                <td class="khema">c</td>
+                <td class="key">c</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td class="vesper">आमाँ</td>
+                <td class="khema">cf</td>
+                <td class="key">cf</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td class="vesper">इमाँ</td>
+                <td class="khema">cl</td>
+                <td class="key">cl</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td class="vesper">ईमाँ</td>
+                <td class="khema">cW</td>
+                <td class="key">cW</td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td class="vesper">उमाँ</td>
+                <td class="khema">cp</td>
+                <td class="key">cp</td>
+              </tr>
+              <tr>
+                <th scope="row">6</th>
+                <td class="vesper">ऊमाँ</td>
+                <td class="khema">Y</td>
+                <td class="key">Y</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-4">
+          <table class="table table-bordered border-primary table-responsive">
+            <tr class="mb-hide">
+              <th scope="col">#</th>
+              <th scope="col">Pronounce</th>
+              <th scope="col">Khema</th>
+              <th scope="col">Keyboard</th>
+            </tr>
+            <tbody>
+              <tr>
+                <th scope="row">7</th>
+                <td class="vesper">एमाँ</td>
+                <td class="khema">cP</td>
+                <td class="key">cP</td>
+              </tr>
+              <tr>
+                <th scope="row">8</th>
+                <td class="vesper">ए:माँ</td>
+                <td class="khema">N</td>
+                <td class="key">N</td>
+              </tr>
+              <tr>
+                <th scope="row">9</th>
+                <td class="vesper">ऐमाँ</td>
+                <td class="khema">cQ</td>
+                <td class="key">cQ</td>
+              </tr>
+              <tr>
+                <th scope="row">10</th>
+                <td class="vesper">ओमाँ</td>
+                <td class="khema">cR</td>
+                <td class="key">cR</td>
+              </tr>
+              <tr>
+                <th scope="row">11</th>
+                <td class="vesper">ओ:माँ</td>
+                <td class="khema">X</td>
+                <td class="key">X</td>
+              </tr>
+              <tr>
+                <th scope="row">12</th>
+                <td class="vesper">औमाँ</td>
+                <td class="khema">cS</td>
+                <td class="key">cS</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- consonents -->
+      <h3 class="heading mt-5"><span class="khema">vPklVU</span>Consonents <span class="vesper">खेप्ह्री (व्यञ्जनवर्ण)</span></h3>
+      <div class="vowels-container row">
+        <div class="col-md-4">
+          <table class="table table-bordered border-primary table-responsive">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Pronounce</th>
+              <th scope="col">Khema</th>
+              <th scope="col">Keyboard</th>
+            </tr>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td class="vesper">कखे</td>
+                <td class="khema">s</td>
+                <td class="key">s</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td class="vesper">खखे</td>
+                <td class="khema">v</td>
+                <td class="key">v</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td class="vesper">गखे</td>
+                <td class="khema">u</td>
+                <td class="key">u</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td class="vesper">घखे</td>
+                <td class="khema">q</td>
+                <td class="key">q</td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td class="vesper">ङखे</td>
+                <td class="khema">m</td>
+                <td class="key">m</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col-md-4">
+          <table class="table table-bordered border-primary table-responsive">
+            <tr class="mb-hide">
+              <th scope="col">#</th>
+              <th scope="col">Pronounce</th>
+              <th scope="col">Khema</th>
+              <th scope="col">Keyboard</th>
+            </tr>
+            <tbody>
+              <tr>
+                <th scope="row">6</th>
+                <td class="vesper">चखे</td>
+                <td class="khema">r</td>
+                <td class="key">r</td>
+              </tr>
+              <tr>
+                <th scope="row">7</th>
+                <td class="vesper">छखे</td>
+                <td class="khema">i</td>
+                <td class="key">i</td>
+              </tr>
+              <tr>
+                <th scope="row">8</th>
+                <td class="vesper">जखे</td>
+                <td class="khema">h</td>
+                <td class="key">h</td>
+              </tr>
+              <tr>
+                <th scope="row">9</th>
+                <td class="vesper">झखे</td>
+                <td class="khema">hD</td>
+                <td class="key">hD</td>
+              </tr>
+              <tr>
+                <th scope="row">10</th>
+                <td class="vesper">हखे</td>
+                <td class="khema">x</td>
+                <td class="key">x</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col-md-4">
+          <table class="table table-bordered border-primary table-responsive">
+            <tr class="mb-hide">
+              <th scope="col">#</th>
+              <th scope="col">Pronounce</th>
+              <th scope="col">Khema</th>
+              <th scope="col">Keyboard</th>
+            </tr>
+            <tbody>
+              <tr>
+                <th scope="row">11</th>
+                <td class="vesper">टखे</td>
+                <td class="khema">H</td>
+                <td class="key">H</td>
+              </tr>
+              <tr>
+                <th scope="row">12</th>
+                <td class="vesper">ठखे</td>
+                <td class="khema">J</td>
+                <td class="key">J</td>
+              </tr>
+              <tr>
+                <th scope="row">13</th>
+                <td class="vesper">डखे</td>
+                <td class="khema">F</td>
+                <td class="key">F</td>
+              </tr>
+              <tr>
+                <th scope="row">14</th>
+                <td class="vesper">ढखे</td>
+                <td class="khema">K</td>
+                <td class="key">K</td>
+              </tr>
+              <tr>
+                <th scope="row">15</th>
+                <td class="vesper">वखे</td>
+                <td class="khema">j</td>
+                <td class="key">j</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col-md-4">
+          <table class="table table-bordered border-primary table-responsive">
+            <tbody>
+              <tr>
+                <th scope="row">16</th>
+                <td class="vesper">तखे</td>
+                <td class="khema">t</td>
+                <td class="key">t</td>
+              </tr>
+              <tr>
+                <th scope="row">17</th>
+                <td class="vesper">थखे</td>
+                <td class="khema">y</td>
+                <td class="key">y</td>
+              </tr>
+              <tr>
+                <th scope="row">18</th>
+                <td class="vesper">दखे</td>
+                <td class="khema">b</td>
+                <td class="key">b</td>
+              </tr>
+              <tr>
+                <th scope="row">19</th>
+                <td class="vesper">धखे</td>
+                <td class="khema">w</td>
+                <td class="key">w</td>
+              </tr>
+              <tr>
+                <th scope="row">20</th>
+                <td class="vesper">नखे</td>
+                <td class="khema">g</td>
+                <td class="key">g</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col-md-4">
+          <table class="table table-bordered border-primary table-responsive">
+            <tbody>
+              <tr>
+                <th scope="row">21</th>
+                <td class="vesper">पखे</td>
+                <td class="khema">k</td>
+                <td class="key">k</td>
+              </tr>
+              <tr>
+                <th scope="row">22</th>
+                <td class="vesper">फखे</td>
+                <td class="khema">L</td>
+                <td class="key">L</td>
+              </tr>
+              <tr>
+                <th scope="row">23</th>
+                <td class="vesper">बखे</td>
+                <td class="khema">a</td>
+                <td class="key">a</td>
+              </tr>
+              <tr>
+                <th scope="row">24</th>
+                <td class="vesper">भखे</td>
+                <td class="khema">e</td>
+                <td class="key">e</td>
+              </tr>
+              <tr>
+                <th scope="row">25</th>
+                <td class="vesper">मखे</td>
+                <td class="khema">d</td>
+                <td class="key">d</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col-md-4">
+          <table class="table table-bordered border-primary table-responsive">
+            <tbody>
+              <tr>
+                <th scope="row">26</th>
+                <td class="vesper">यखे</td>
+                <td class="khema">o</td>
+                <td class="key">o</td>
+              </tr>
+              <tr>
+                <th scope="row">27</th>
+                <td class="vesper">रखे</td>
+                <td class="khema">M</td>
+                <td class="key">M</td>
+              </tr>
+              <tr>
+                <th scope="row">28</th>
+                <td class="vesper">लखे</td>
+                <td class="khema">n</td>
+                <td class="key">n</td>
+              </tr>
+              <tr>
+                <th scope="row">29</th>
+                <td class="vesper">सखे</td>
+                <td class="khema">z</td>
+                <td class="key">z</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- lhoma (supporting alphabets) -->
+      <h3 class="heading mt-5"><span class="khema">nSUdfO</span>Lhoma (supporting alphabets) <span class="vesper">ल्होमा (सहयोगी वर्ण)</span></h3>
+      <div class="supporting vowels-container row">
+        <div class="col-md-6">
+          <table class="table table-bordered border-primary table-responsive">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Pronounce</th>
+              <th scope="col">Khema</th>
+              <th scope="col">Keyboard</th>
+              <th scope="col">Khema Eg.</th>
+              <th scope="col">Keys Eg.</th>
+            </tr>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td class="vesper">य ल्होमा</td>
+                <td class="khema">T</td>
+                <td class="key">T</td>
+                <td class="khema">Ts</td>
+                <td class="key">Ts</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td class="vesper">व ल्होमा</td>
+                <td class="khema">E</td>
+                <td class="key">E</td>
+                <td class="khema">Es</td>
+                <td class="key">Es</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td class="vesper">ह ल्होमा</td>
+                <td class="khema">U</td>
+                <td class="key">U</td>
+                <td class="khema">sU</td>
+                <td class="key">sU</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td class="vesper">लैं ल्होमा</td>
+                <td class="khema">O</td>
+                <td class="key">O</td>
+                <td class="khema">sO</td>
+                <td class="key">sO</td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td class="vesper">र ल्होमा</td>
+                <td class="khema">V</td>
+                <td class="key">V</td>
+                <td class="khema">sV</td>
+                <td class="key">sV</td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td class="vesper">थो ल्होमा</td>
+                <td class="khema">I</td>
+                <td class="key">I</td>
+                <td class="khema">sI</td>
+                <td class="key">sI</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Digits -->
+      <h3 class="heading mt-5"><span class="khema">TrRklVU</span>Digits <span class="vesper">च्योप्ह्री (अंकहरु)</span></h3>
+      <div class="supporting vowels-container row">
+        <div class="col-md-6">
+          <table class="table table-bordered border-primary table-responsive">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nepali</th>
+              <th scope="col">Khema</th>
+              <th scope="col">Keyboard</th>
+            </tr>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td class="vesper">१</td>
+                <td class="khema">0</td>
+                <td class="key">0</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td class="vesper">२</td>
+                <td class="khema">2</td>
+                <td class="key">2</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td class="vesper">३</td>
+                <td class="khema">3</td>
+                <td class="key">3</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td class="vesper">४</td>
+                <td class="khema">4</td>
+                <td class="key">4</td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td class="vesper">५</td>
+                <td class="khema">5</td>
+                <td class="key">5</td>
+              </tr>
+              <tr>
+                <th scope="row">6</th>
+                <td class="vesper">६</td>
+                <td class="khema">6</td>
+                <td class="key">6</td>
+              </tr>
+              <tr>
+                <th scope="row">7</th>
+                <td class="vesper">७</td>
+                <td class="khema">7</td>
+                <td class="key">7</td>
+              </tr>
+              <tr>
+                <th scope="row">8</th>
+                <td class="vesper">८</td>
+                <td class="khema">8</td>
+                <td class="key">8</td>
+              </tr>
+              <tr>
+                <th scope="row">9</th>
+                <td class="vesper">९</td>
+                <td class="khema">9</td>
+                <td class="key">9</td>
+              </tr>
+              <tr>
+                <th scope="row">10</th>
+                <td class="vesper">१०</td>
+                <td class="khema">10</td>
+                <td class="key">10</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+<!--
+      <h3 class="heading mt-5">Khema Script in Web[Demo]</h3>
+      <div class="khema-wrapper">
+        <h1 class="khema">
+          TifhfnR
+        </h1>
+        <h2 class="preeti">
+          नमस्ते
+        </h2>
+        <h2>
+          Hello
+        </h2>
+      </div> -->
     </div>
 
-    <div class="footer">
-      Research by <a href="https://facebook.com/dhanugorkhali/">Dhanu Gorkhali</a> at Rodhi Labs.
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
 </html>

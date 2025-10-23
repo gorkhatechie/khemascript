@@ -1,0 +1,96 @@
+@font-face {
+  font-family: "Khema";
+  src: url("./fonts/khema.otf");
+}
+@font-face {
+  font-family: "Preeti";
+  src: url("./fonts/preeti.otf");
+}
+
+.heading {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.khema {
+  font-family: "Khema", serif;
+  margin: 5px;
+}
+.preeti {
+  font-family: "Preeti", serif;
+  margin: 5px;
+}
+.vesper {
+  font-family: "Vesper Libre", serif;
+}
+h2 {
+  margin: 0;
+  font-weight: 400;
+}
+
+.vowels-container {
+  tr {
+    text-align: center;
+  }
+  tr > th {
+    width: 15%;
+  }
+  tr > th:nth-child(2) {
+    width: 30%;
+  }
+  tr > th:nth-child(3), tr > th:nth-child(4) {
+    width: 25%;
+  }
+
+  tr td:nth-child(2) {
+    width: 30%;
+  }
+  tr td:nth-child(3), tr td:nth-child(4) {
+    width: 25%;
+  }
+  .hide {
+    display: none;
+  }
+  .vesper {
+    vertical-align: middle;
+    font-size: 18px;
+    padding: 5px 0.8rem;
+  }
+  .khema {
+    font-size: 25px;
+    padding: 0 .8rem;
+  }
+  .key {
+    font-size: 18px;
+  }
+}
+.supporting.vowels-container {
+  tr > th {
+    width: 10%;
+  }
+  tr td:nth-child(2) {
+    width: 20%;
+  }
+  tr td:nth-child(3), tr td:nth-child(4), tr td:nth-child(6) {
+    width: 15%;
+  }
+  tr td:nth-child(5) {
+    width: 20%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .vowels-container {
+    .mb-hide {
+      display: none;
+    }
+    tbody tr th {
+      font-size: 13px;
+    }
+    .khema {
+      font-size: 22px;
+    }
+    .key, .vesper {
+      font-size: 16px;
+    }
+  }
+}
