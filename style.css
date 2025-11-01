@@ -16,6 +16,9 @@
   margin: 5px;
   font-size: 24px;
 }
+.khema.shift {
+  text-transform: uppercase;
+}
 .preeti {
   font-family: "Preeti", serif;
   margin: 5px;
@@ -96,6 +99,30 @@ h2 {
       font-family: Arial, Helvetica, sans-serif;
       font-size: 15px;
       line-height: 18px;
+    }
+    .eng.shift {
+      text-transform: uppercase;
+    }
+    .preeti {
+      position: absolute;
+      top: 2px;
+      left: 5px;
+      font-family: "Preeti", serif;
+      font-size: 22px;
+      line-height: 18px;
+      margin: 0;
+    }
+    .vesper {
+      position: absolute;
+      top: 2px;
+      left: 5px;
+      font-family: "Vesper Libre", serif;
+      font-size: 22px;
+      line-height: 18px;
+      margin: 0;
+    }
+    .preeti.shift, .vesper.shift {
+      text-transform: uppercase;
     }
   }
 }

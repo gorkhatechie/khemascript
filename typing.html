@@ -77,22 +77,28 @@
         <h1 class="text-4xl font-bold mb-6 text-blue-300">Simple Typing Test</h1>
 
         <!-- Output Display -->
-        <div class="w-full max-w-5xl flex justify-between items-center mb-2">
-            <p class="text-gray-400">Your typed text will appear here:</p>
-            <button id="clear-button" class="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg shadow transition-colors duration-150">
-                Clear
-            </button>
-        </div>
-
         <div id="output-display" class="w-full max-w-5xl min-h-[120px] bg-gray-800 border-2 border-gray-600 rounded-lg p-4 text-xl font-mono mb-8 shadow-inner overflow-auto">
           <span id="cursor" class="cursor"></span>
+        </div>
+
+        <div class="w-full max-w-5xl flex justify-between items-center mb-2">
+            <p class="text-gray-400">Your typed text will appear here:</p>
+
+            <div class="wrapper">
+              <button id="shift-toggle-button" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg shadow transition-colors duration-150">
+                Keys with Shift
+              </button>
+              <button id="clear-button" class="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg shadow transition-colors duration-150">
+                Clear
+              </button>
+            </div>
         </div>
 
         <!-- Keyboard -->
         <div id="keyboard-container" class="w-full max-w-5xl p-2 bg-gray-800 rounded-lg shadow-xl">
             <!-- Row 1 -->
             <div class="row flex justify-center mb-1 w-full">
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="Backquote">\`</div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Backquote">`</div>
                 <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit1">1 <span class="eng">1</span></div>
                 <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit2">2 <span class="eng">2</span></div>
                 <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit3">3 <span class="eng">3</span></div>
@@ -103,8 +109,8 @@
                 <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit8">8 <span class="eng">8</span></div>
                 <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit9">9 <span class="eng">9</span></div>
                 <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit0">0 <span class="eng">0</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="Minus">-</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="Equal">=</div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Minus">- <span class="eng">-</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Equal">= <span class="eng">=</span></div>
                 <div class="key key-backspace rounded-md p-3 m-1 text-center font-medium" data-key="Backspace">Backspace</div>
             </div>
             <!-- Row 2 -->
@@ -120,9 +126,9 @@
                 <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyI">i <span class="eng">i</span></div>
                 <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyO">o <span class="eng">o</span></div>
                 <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyP">p <span class="eng">p</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="BracketLeft">[</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="BracketRight">]</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="Backslash">\</div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="BracketLeft">[ <span class="eng">[</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="BracketRight">] <span class="eng">]</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Backslash">\ <span class="eng">\</span></div>
             </div>
             <!-- Row 3 -->
             <div class="row flex justify-center mb-1 w-full">
@@ -136,8 +142,8 @@
                 <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyJ">j <span class="eng">j</span></div>
                 <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyK">k <span class="eng">k</span></div>
                 <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyL">l <span class="eng">l</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="Semicolon">;</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="Quote">'</div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Semicolon">; <span class="eng">;</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Quote">' <span class="eng">'</span></div>
                 <div class="key key-enter rounded-md p-3 m-1 text-center font-medium" data-key="Enter">Enter</div>
             </div>
             <!-- Row 4 -->
@@ -150,9 +156,9 @@
                 <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyB">b <span class="eng">b</span></div>
                 <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyN">n <span class="eng">n</span></div>
                 <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyM">m <span class="eng">m</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Comma">,</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="Period">.</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="Slash">/</div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Comma">, <span class="eng">,</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Period">. <span class="eng">.</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Slash">/ <span class="eng">/</span></div>
                 <div class="key key-shift rounded-md p-3 m-1 text-center font-medium" data-key="ShiftRight">Shift</div>
             </div>
             <!-- Row 5 -->
@@ -167,207 +173,7 @@
 
     </main>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const outputDisplay = document.getElementById('output-display');
-            const keys = document.querySelectorAll('.key');
-            const clearButton = document.getElementById('clear-button');
-            const cursor = document.getElementById('cursor'); // Get cursor
-
-            // Create a map for quick lookup of keys by their 'data-key' (which corresponds to event.code)
-            const keyMap = new Map();
-            keys.forEach(key => {
-                keyMap.set(key.dataset.key, key);
-            });
-
-            // Handle key down event
-            window.addEventListener('keydown', (e) => {
-                // Prevent default browser behavior for keys like Tab or Space (scrolling)
-                e.preventDefault();
-
-                const keyElement = keyMap.get(e.code);
-                let char = e.key;
-
-                // 1. Highlight the pressed key
-                if (keyElement) {
-                    keyElement.classList.add('active');
-                }
-
-                // 2. Update the output display
-                if (char.length === 1) {
-                    // Normal character keys (a, b, 1, 2, $, %, etc.)
-                    outputDisplay.textContent += char;
-                } else if (e.code === 'Backspace') {
-                    // Handle Backspace
-                    outputDisplay.textContent = outputDisplay.textContent.slice(0, -1);
-                } else if (e.code === 'Space') {
-                    // Handle Space
-                    outputDisplay.textContent += ' ';
-                } else if (e.code === 'Enter') {
-                    // Handle Enter
-                    outputDisplay.textContent += '\n';
-                } else if (e.code === 'Tab') {
-                    // Handle Tab (insert 4 spaces)
-                    outputDisplay.textContent += '    ';
-                }
-
-                // Auto-scroll to the bottom of the output display
-                outputDisplay.scrollTop = outputDisplay.scrollHeight;
-            });
-
-            // Handle key up event
-            window.addEventListener('keyup', (e) => {
-                const keyElement = keyMap.get(e.code);
-
-                // Remove the 'active' class to un-highlight the key
-                if (keyElement) {
-                    keyElement.classList.remove('active');
-                }
-            });
-
-            // --- NEW: Add click/touch listeners to virtual keys ---
-            keys.forEach(key => {
-                // Use 'mousedown' and 'mouseup' to better simulate key press/release
-                // and 'touchstart'/'touchend' for mobile
-
-                const handlePress = (e) => {
-                    e.preventDefault(); // Prevent focus shift on click
-                    const code = key.dataset.key;
-                    let char; // Map 'code' to the character or action
-
-                    // Manual mapping based on the existing HTML
-                    // This determines what character to print or action to take
-                    switch(code) {
-                        case 'Backspace': char = 'Backspace'; break;
-                        case 'Tab': char = 'Tab'; break;
-                        case 'Enter': char = 'Enter'; break;
-                        case 'Space': char = ' '; break; // 'key' is " " for space
-                        case 'KeyQ': char = 'q'; break;
-                        case 'KeyW': char = 'w'; break;
-                        case 'KeyE': char = 'e'; break;
-                        case 'KeyR': char = 'r'; break;
-                        case 'KeyT': char = 't'; break;
-                        case 'KeyY': char = 'y'; break;
-                        case 'KeyU': char = 'u'; break;
-                        case 'KeyI': char = 'i'; break;
-                        case 'KeyO': char = 'o'; break;
-                        case 'KeyP': char = 'p'; break;
-                        case 'KeyA': char = 'a'; break;
-                        case 'KeyS': char = 's'; break;
-                        case 'KeyD': char = 'd'; break;
-                        case 'KeyF': char = 'f'; break;
-                        case 'KeyG': char = 'g'; break;
-                        case 'KeyH': char = 'h'; break;
-                        case 'KeyJ': char = 'j'; break;
-                        case 'KeyK': char = 'k'; break;
-                        case 'KeyL': char = 'l'; break;
-                        case 'KeyZ': char = 'z'; break;
-                        case 'KeyX': char = 'x'; break;
-                        case 'KeyC': char = 'c'; break;
-                        case 'KeyV': char = 'v'; break;
-                        case 'KeyB': char = 'b'; break;
-                        case 'KeyN': char = 'n'; break;
-                        case 'KeyM': char = 'm'; break;
-                        case 'Digit1': char = '1'; break;
-                        case 'Digit2': char = '2'; break;
-                        case 'Digit3': char = '3'; break;
-                        case 'Digit4': char = '4'; break;
-                        case 'Digit5': char = '5'; break;
-                        case 'Digit6': char = '6'; break;
-                        case 'Digit7': char = '7'; break;
-                        case 'Digit8': char = '8'; break;
-                        case 'Digit9': char = '9'; break;
-                        case 'Digit0': char = '0'; break;
-                        case 'Backquote': char = '`'; break;
-                        case 'Minus': char = '-'; break;
-                        case 'Equal': char = '='; break;
-                        case 'BracketLeft': char = '['; break;
-                        case 'BracketRight': char = ']'; break;
-                        case 'Backslash': char = '\\'; break;
-                        case 'Semicolon': char = ';'; break;
-                        case 'Quote': char = '\''; break;
-                        case 'Comma': char = ','; break;
-                        case 'Period': char = '.'; break;
-                        case 'Slash': char = '/'; break;
-
-                        // Keys that do nothing on click (for this simple app)
-                        case 'CapsLock':
-                        case 'ShiftLeft':
-                        case 'ShiftRight':
-                        case 'ControlLeft':
-                        case 'ControlRight':
-                        case 'AltLeft':
-                        case 'AltRight':
-                            char = 'Functional'; // A placeholder for non-printing keys
-                            break;
-                        default:
-                            char = 'Functional'; // Fallback for any other keys
-                    }
-
-                    // 1. Simulate visual press
-                    key.classList.add('active');
-
-                    // 2. Update the output display (re-using logic from keydown)
-                    if (char.length === 1) {
-                        const textNode = document.createTextNode(char);
-                        outputDisplay.insertBefore(textNode, cursor);
-                    } else if (code === 'Backspace') {
-                        const lastNode = cursor.previousSibling;
-                        if (lastNode && lastNode.nodeType === Node.TEXT_NODE) {
-                            if (lastNode.textContent.length > 1) {
-                                lastNode.textContent = lastNode.textContent.slice(0, -1);
-                            } else {
-                                outputDisplay.removeChild(lastNode);
-                            }
-                        } else if (lastNode && lastNode.tagName === 'BR') {
-                            outputDisplay.removeChild(lastNode);
-                        }
-                    } else if (code === 'Space') {
-                        // 'char' is ' ' but we check 'code' for clarity
-                        const textNode = document.createTextNode(' ');
-                        outputDisplay.insertBefore(textNode, cursor);
-                    } else if (code === 'Enter') {
-                        const br = document.createElement('br');
-                        outputDisplay.insertBefore(br, cursor);
-                    } else if (code === 'Tab') {
-                        const textNode = document.createTextNode('    ');
-                        outputDisplay.insertBefore(textNode, cursor);
-                    }
-
-                    // Auto-scroll to the bottom
-                    outputDisplay.scrollTop = outputDisplay.scrollHeight;
-                };
-
-                const handleRelease = () => {
-                  // Remove visual press
-                  key.classList.remove('active');
-                };
-
-                // Add listeners for mouse and touch
-                key.addEventListener('mousedown', handlePress);
-                key.addEventListener('mouseup', handleRelease);
-                key.addEventListener('mouseleave', handleRelease); // In case mouse slides off
-
-                key.addEventListener('touchstart', handlePress, { passive: false });
-                key.addEventListener('touchend', handleRelease);
-            });
-
-            clearButton.addEventListener('click', () => {
-              // Remove all children except the cursor
-              while (outputDisplay.firstChild && outputDisplay.firstChild !== cursor) {
-                outputDisplay.removeChild(outputDisplay.firstChild);
-              }
-              window.focus(); // Re-focus the window to continue typing
-            });
-
-            // Focus the window to start capturing keys immediately
-            window.focus();
-            // Optional: Click anywhere to focus
-            document.body.addEventListener('click', () => {
-                window.focus();
-            });
-        });
-    </script>
+    <script src="js/typing.js"></script>
 
 </body>
 </html>
