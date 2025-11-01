@@ -29,10 +29,25 @@
         /* Widths for special keys */
         .key-backspace { width: 8rem; } /* w-32 */
         .key-tab { width: 5rem; } /* w-20 */
-        .key-caps { width: 7.5rem; } /* w-26 */
+        .key-caps { width: 9rem; } /* w-26 */
         .key-enter { width: 8rem; } /* w-32 */
         .key-shift { width: 9rem; } /* w-36 */
         .key-space { flex-grow: 1; } /* Fills remaining space */
+
+        .cursor {
+          display: inline-block;
+          width: 2px;
+          height: 1.5rem; /* Approx text-xl line height */
+          background-color: #93c5fd; /* blue-300 */
+          animation: blink 1s step-end infinite;
+          margin-left: 1px;
+          vertical-align: text-bottom;
+        }
+        /* Blinking cursor animation */
+        @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
 
         /* Responsive adjustments for smaller screens */
         @media (max-width: 768px) {
@@ -58,12 +73,20 @@
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex items-center justify-center p-4">
 
-    <main class="w-full max-w-5xl flex flex-col items-center">
+    <main class="w-full max-w-4xl flex flex-col items-center">
         <h1 class="text-4xl font-bold mb-6 text-blue-300">Simple Typing Test</h1>
 
         <!-- Output Display -->
-        <p class="text-gray-400 mb-2">Your typed text will appear here:</p>
-        <div id="output-display" class="w-full max-w-4xl min-h-[120px] bg-gray-800 border-2 border-gray-600 rounded-lg p-4 text-xl font-mono mb-8 shadow-inner overflow-auto"></div>
+        <div class="w-full max-w-5xl flex justify-between items-center mb-2">
+            <p class="text-gray-400">Your typed text will appear here:</p>
+            <button id="clear-button" class="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg shadow transition-colors duration-150">
+                Clear
+            </button>
+        </div>
+
+        <div id="output-display" class="w-full max-w-5xl min-h-[120px] bg-gray-800 border-2 border-gray-600 rounded-lg p-4 text-xl font-mono mb-8 shadow-inner overflow-auto">
+          <span id="cursor" class="cursor"></span>
+        </div>
 
         <!-- Keyboard -->
         <div id="keyboard-container" class="w-full max-w-5xl p-2 bg-gray-800 rounded-lg shadow-xl">
@@ -88,15 +111,15 @@
             <div class="row flex justify-center mb-1 w-full">
                 <div class="key key-tab rounded-md p-3 m-1 text-center font-medium" data-key="Tab">Tab</div>
                 <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyQ">q <span class="eng">q</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyW">w</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyE">e</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyR">r</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyT">t</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyY">y</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyU">u</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyI">i</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyO">o</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyP">p</div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyW">w <span class="eng">w</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyE">e <span class="eng">e</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyR">r <span class="eng">r</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyT">t <span class="eng">t</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyY">y <span class="eng">y</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyU">u <span class="eng">u</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyI">i <span class="eng">i</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyO">o <span class="eng">o</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyP">p <span class="eng">p</span></div>
                 <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="BracketLeft">[</div>
                 <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="BracketRight">]</div>
                 <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="Backslash">\</div>
@@ -104,15 +127,15 @@
             <!-- Row 3 -->
             <div class="row flex justify-center mb-1 w-full">
                 <div class="key key-caps rounded-md p-3 m-1 text-center font-medium" data-key="CapsLock">Caps Lock</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="KeyA">A</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="KeyS">S</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="KeyD">D</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="KeyF">F</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="KeyG">G</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="KeyH">H</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="KeyJ">J</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="KeyK">K</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="KeyL">L</div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyA">a <span class="eng">a</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyS">s <span class="eng">s</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyD">d <span class="eng">d</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyF">f <span class="eng">f</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyG">g <span class="eng">g</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyH">h <span class="eng">h</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyJ">j <span class="eng">j</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyK">k <span class="eng">k</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyL">l <span class="eng">l</span></div>
                 <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="Semicolon">;</div>
                 <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="Quote">'</div>
                 <div class="key key-enter rounded-md p-3 m-1 text-center font-medium" data-key="Enter">Enter</div>
@@ -120,14 +143,14 @@
             <!-- Row 4 -->
             <div class="row flex justify-center mb-1 w-full">
                 <div class="key key-shift rounded-md p-3 m-1 text-center font-medium" data-key="ShiftLeft">Shift</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="KeyZ">Z</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="KeyX">X</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="KeyC">C</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="KeyV">V</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="KeyB">B</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="KeyN">N</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="KeyM">M</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="Comma">,</div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyZ">z <span class="eng">z</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyX">x <span class="eng">x</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyC">c <span class="eng">c</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyV">v <span class="eng">v</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyB">b <span class="eng">b</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyN">n <span class="eng">n</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyM">m <span class="eng">m</span></div>
+                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Comma">,</div>
                 <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="Period">.</div>
                 <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="Slash">/</div>
                 <div class="key key-shift rounded-md p-3 m-1 text-center font-medium" data-key="ShiftRight">Shift</div>
@@ -148,6 +171,8 @@
         document.addEventListener('DOMContentLoaded', () => {
             const outputDisplay = document.getElementById('output-display');
             const keys = document.querySelectorAll('.key');
+            const clearButton = document.getElementById('clear-button');
+            const cursor = document.getElementById('cursor'); // Get cursor
 
             // Create a map for quick lookup of keys by their 'data-key' (which corresponds to event.code)
             const keyMap = new Map();
@@ -284,16 +309,29 @@
 
                     // 2. Update the output display (re-using logic from keydown)
                     if (char.length === 1) {
-                        outputDisplay.textContent += char;
+                        const textNode = document.createTextNode(char);
+                        outputDisplay.insertBefore(textNode, cursor);
                     } else if (code === 'Backspace') {
-                        outputDisplay.textContent = outputDisplay.textContent.slice(0, -1);
+                        const lastNode = cursor.previousSibling;
+                        if (lastNode && lastNode.nodeType === Node.TEXT_NODE) {
+                            if (lastNode.textContent.length > 1) {
+                                lastNode.textContent = lastNode.textContent.slice(0, -1);
+                            } else {
+                                outputDisplay.removeChild(lastNode);
+                            }
+                        } else if (lastNode && lastNode.tagName === 'BR') {
+                            outputDisplay.removeChild(lastNode);
+                        }
                     } else if (code === 'Space') {
                         // 'char' is ' ' but we check 'code' for clarity
-                        outputDisplay.textContent += ' ';
+                        const textNode = document.createTextNode(' ');
+                        outputDisplay.insertBefore(textNode, cursor);
                     } else if (code === 'Enter') {
-                        outputDisplay.textContent += '\n';
+                        const br = document.createElement('br');
+                        outputDisplay.insertBefore(br, cursor);
                     } else if (code === 'Tab') {
-                        outputDisplay.textContent += '    ';
+                        const textNode = document.createTextNode('    ');
+                        outputDisplay.insertBefore(textNode, cursor);
                     }
 
                     // Auto-scroll to the bottom
@@ -301,8 +339,8 @@
                 };
 
                 const handleRelease = () => {
-                    // Remove visual press
-                    key.classList.remove('active');
+                  // Remove visual press
+                  key.classList.remove('active');
                 };
 
                 // Add listeners for mouse and touch
@@ -312,6 +350,14 @@
 
                 key.addEventListener('touchstart', handlePress, { passive: false });
                 key.addEventListener('touchend', handleRelease);
+            });
+
+            clearButton.addEventListener('click', () => {
+              // Remove all children except the cursor
+              while (outputDisplay.firstChild && outputDisplay.firstChild !== cursor) {
+                outputDisplay.removeChild(outputDisplay.firstChild);
+              }
+              window.focus(); // Re-focus the window to continue typing
             });
 
             // Focus the window to start capturing keys immediately
