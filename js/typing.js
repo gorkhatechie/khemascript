@@ -153,8 +153,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
           // 2. Update the output display (re-using logic from keydown)
           if (char.length === 1) {
-              const textNode = document.createTextNode(char);
-              outputDisplay.insertBefore(textNode, cursor);
+            if (shiftToggleBtn.checked){
+              char = char.toUpperCase();
+            }
+
+            const textNode = document.createTextNode(char);
+            outputDisplay.insertBefore(textNode, cursor);
           } else if (code === 'Backspace') {
               const lastNode = cursor.previousSibling;
               if (lastNode && lastNode.nodeType === Node.TEXT_NODE) {

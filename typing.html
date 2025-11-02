@@ -1,179 +1,181 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Typing Test</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Simple Typing Test</title>
+      <!-- Load Tailwind CSS -->
+      <script src="https://cdn.tailwindcss.com"></script>
 
-    <style>
-        /* Custom styles for the keyboard */
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .key {
-            /* Base key style */
-            background-color: #4b5563; /* gray-600 */
-            border-bottom: 4px solid #374151; /* gray-700 */
-            transition: all 0.07s ease;
-            padding: 1rem;
-        }
-        .key.active {
-            /* Style when key is pressed */
-            background-color: #3b82f6; /* blue-500 */
-            border-bottom-color: #2563eb; /* blue-600 */
-            transform: translateY(2px);
-            box-shadow: 0 0 10px #3b82f6;
-        }
-        /* Widths for special keys */
-        .key-backspace { width: 8rem; } /* w-32 */
-        .key-tab { width: 5rem; } /* w-20 */
-        .key-caps { width: 9rem; } /* w-26 */
-        .key-enter { width: 8rem; } /* w-32 */
-        .key-shift { width: 9rem; } /* w-36 */
-        .key-space { flex-grow: 1; } /* Fills remaining space */
+      <style>
+          /* Custom styles for the keyboard */
+          body {
+              font-family: 'Inter', sans-serif;
+          }
+          .key {
+              /* Base key style */
+              background-color: #4b5563; /* gray-600 */
+              border-bottom: 4px solid #374151; /* gray-700 */
+              transition: all 0.07s ease;
+              /* padding: 1rem; */
+              width: 55px;
+          }
+          .key.active {
+              /* Style when key is pressed */
+              background-color: #3b82f6; /* blue-500 */
+              border-bottom-color: #2563eb; /* blue-600 */
+              transform: translateY(2px);
+              box-shadow: 0 0 10px #3b82f6;
+          }
+          /* Widths for special keys */
+          .key-backspace { width: 8rem; } /* w-32 */
+          .key-tab { width: 5rem; } /* w-20 */
+          .key-caps { width: 11rem; } /* w-26 */
+          .key-enter { width: 8rem; } /* w-32 */
+          .key-shift { width: 9rem; } /* w-36 */
+          .key-space { flex-grow: 1; } /* Fills remaining space */
 
-        .cursor {
-          display: inline-block;
-          width: 2px;
-          height: 1.5rem; /* Approx text-xl line height */
-          background-color: #93c5fd; /* blue-300 */
-          animation: blink 1s step-end infinite;
-          margin-left: 1px;
-          vertical-align: text-bottom;
-        }
-        /* Blinking cursor animation */
-        @keyframes blink {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0; }
-        }
+          .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.5rem; /* Approx text-xl line height */
+            background-color: #93c5fd; /* blue-300 */
+            animation: blink 1s step-end infinite;
+            margin-left: 1px;
+            vertical-align: text-bottom;
+          }
+          /* Blinking cursor animation */
+          @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+          }
 
-        /* Responsive adjustments for smaller screens */
-        @media (max-width: 768px) {
-            .key {
-                padding: 0.5rem 0.25rem;
-                margin: 0.125rem;
-                font-size: 0.75rem; /* Smaller text */
-            }
-            /* Adjust special key widths for mobile */
-            .key-backspace { width: 5rem; }
-            .key-tab { width: 3rem; }
-            .key-caps { width: 4rem; }
-            .key-enter { width: 5rem; }
-            .key-shift { width: 4.5rem; }
-        }
-    </style>
+          /* Responsive adjustments for smaller screens */
+          @media (max-width: 768px) {
+              .key {
+                  /* padding: 0.5rem 0.25rem; */
+                  margin: 0.125rem;
+                  font-size: 0.75rem; /* Smaller text */
+              }
+              /* Adjust special key widths for mobile */
+              .key-backspace { width: 5rem; }
+              .key-tab { width: 3rem; }
+              .key-caps { width: 4rem; }
+              .key-enter { width: 5rem; }
+              .key-shift { width: 4.5rem; }
+          }
+      </style>
 
-    <link rel="stylesheet" href="style.css">
-    <!-- Load Inter font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-</head>
-<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center p-4">
+      <link rel="stylesheet" href="style.css">
+      <!-- Load Inter font -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-gray-900 text-white min-h-screen flex items-center justify-center p-4">
 
-    <main class="w-full max-w-4xl flex flex-col items-center">
-        <h1 class="text-4xl font-bold mb-6 text-blue-300">Simple Typing Test</h1>
+      <main class="w-full max-w-4xl flex flex-col items-center">
+          <h1 class="text-4xl font-bold mb-6 text-blue-300">Simple Typing Test</h1>
 
-        <!-- Output Display -->
-        <div id="output-display" class="w-full max-w-5xl min-h-[120px] bg-gray-800 border-2 border-gray-600 rounded-lg p-4 text-xl font-mono mb-8 shadow-inner overflow-auto">
-          <span id="cursor" class="cursor"></span>
-        </div>
+          <!-- Output Display -->
+          <div id="output-display" class="w-full max-w-5xl min-h-[120px] bg-gray-800 border-2 border-gray-600 rounded-lg p-4 text-xl font-mono mb-8 shadow-inner overflow-auto">
+            <span id="cursor" class="cursor"></span>
+          </div>
 
-        <div class="w-full max-w-5xl flex justify-between items-center mb-2">
-            <p class="text-gray-400">Your typed text will appear here:</p>
+          <div class="w-full max-w-5xl flex justify-between items-center mb-2">
+              <p class="text-gray-400">Your typed text will appear here:</p>
 
-            <div class="wrapper">
-              <button id="shift-toggle-button" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg shadow transition-colors duration-150">
-                Keys with Shift
-              </button>
-              <button id="clear-button" class="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg shadow transition-colors duration-150">
-                Clear
-              </button>
-            </div>
-        </div>
+              <div class="wrapper flex gap-4">
+                <div class="flex gap-1 items-center">
+                  <input id="shift-toggle-button" type="checkbox" class="shift-toggle-button">
+                  <label for="scales">Enable Shift</label>
+                </div>
+                <button id="clear-button" class="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg shadow transition-colors duration-150">
+                  Clear
+                </button>
+              </div>
+          </div>
 
-        <!-- Keyboard -->
-        <div id="keyboard-container" class="w-full max-w-5xl p-2 bg-gray-800 rounded-lg shadow-xl">
-            <!-- Row 1 -->
-            <div class="row flex justify-center mb-1 w-full">
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Backquote">`</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit1">1 <span class="eng">1</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit2">2 <span class="eng">2</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit3">3 <span class="eng">3</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit4">4 <span class="eng">4</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit5">5 <span class="eng">5</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit6">6 <span class="eng">6</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit7">7 <span class="eng">7</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit8">8 <span class="eng">8</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit9">9 <span class="eng">9</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit0">0 <span class="eng">0</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Minus">- <span class="eng">-</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Equal">= <span class="eng">=</span></div>
-                <div class="key key-backspace rounded-md p-3 m-1 text-center font-medium" data-key="Backspace">Backspace</div>
-            </div>
-            <!-- Row 2 -->
-            <div class="row flex justify-center mb-1 w-full">
-                <div class="key key-tab rounded-md p-3 m-1 text-center font-medium" data-key="Tab">Tab</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyQ">q <span class="eng">q</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyW">w <span class="eng">w</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyE">e <span class="eng">e</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyR">r <span class="eng">r</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyT">t <span class="eng">t</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyY">y <span class="eng">y</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyU">u <span class="eng">u</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyI">i <span class="eng">i</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyO">o <span class="eng">o</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyP">p <span class="eng">p</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="BracketLeft">[ <span class="eng">[</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="BracketRight">] <span class="eng">]</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Backslash">\ <span class="eng">\</span></div>
-            </div>
-            <!-- Row 3 -->
-            <div class="row flex justify-center mb-1 w-full">
-                <div class="key key-caps rounded-md p-3 m-1 text-center font-medium" data-key="CapsLock">Caps Lock</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyA">a <span class="eng">a</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyS">s <span class="eng">s</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyD">d <span class="eng">d</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyF">f <span class="eng">f</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyG">g <span class="eng">g</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyH">h <span class="eng">h</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyJ">j <span class="eng">j</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyK">k <span class="eng">k</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyL">l <span class="eng">l</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Semicolon">; <span class="eng">;</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Quote">' <span class="eng">'</span></div>
-                <div class="key key-enter rounded-md p-3 m-1 text-center font-medium" data-key="Enter">Enter</div>
-            </div>
-            <!-- Row 4 -->
-            <div class="row flex justify-center mb-1 w-full">
-                <div class="key key-shift rounded-md p-3 m-1 text-center font-medium" data-key="ShiftLeft">Shift</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyZ">z <span class="eng">z</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyX">x <span class="eng">x</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyC">c <span class="eng">c</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyV">v <span class="eng">v</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyB">b <span class="eng">b</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyN">n <span class="eng">n</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyM">m <span class="eng">m</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Comma">, <span class="eng">,</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Period">. <span class="eng">.</span></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Slash">/ <span class="eng">/</span></div>
-                <div class="key key-shift rounded-md p-3 m-1 text-center font-medium" data-key="ShiftRight">Shift</div>
-            </div>
-            <!-- Row 5 -->
-            <div class="row flex justify-center w-full">
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="ControlLeft">Ctrl</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="AltLeft">Alt</div>
-                <div class="key key-space rounded-md p-3 m-1 text-center font-medium" data-key="Space"></div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="AltRight">Alt</div>
-                <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="ControlRight">Ctrl</div>
-            </div>
-        </div>
+          <!-- Keyboard -->
+          <div id="keyboard-container" class="w-full max-w-5xl p-2 bg-gray-800 rounded-lg shadow-xl">
+              <!-- Row 1 -->
+              <div class="row flex justify-center mb-1 w-full">
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Backquote">`</div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit1">1 <span class="eng">1</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit2">2 <span class="eng">2</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit3">3 <span class="eng">3</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit4">4 <span class="eng">4</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit5">5 <span class="eng">5</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit6">6 <span class="eng">6</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit7">7 <span class="eng">7</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit8">8 <span class="eng">8</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit9">9 <span class="eng">9</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Digit0">0 <span class="eng">0</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Minus">- <span class="eng">-</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Equal">= <span class="eng">=</span></div>
+                  <div class="key key-backspace rounded-md p-3 m-1 text-center font-medium" data-key="Backspace">Backspace</div>
+              </div>
+              <!-- Row 2 -->
+              <div class="row flex justify-center mb-1 w-full">
+                  <div class="key key-tab rounded-md p-3 m-1 text-center font-medium" data-key="Tab">Tab</div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyQ">q <span class="eng">q</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyW">w <span class="eng">w</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyE">e <span class="eng">e</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyR">r <span class="eng">r</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyT">t <span class="eng">t</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyY">y <span class="eng">y</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyU">u <span class="eng">u</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyI">i <span class="eng">i</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyO">o <span class="eng">o</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyP">p <span class="eng">p</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="BracketLeft">[ <span class="eng">[</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="BracketRight">] <span class="eng">]</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Backslash">\ <span class="eng">\</span></div>
+              </div>
+              <!-- Row 3 -->
+              <div class="row flex justify-center mb-1 w-full">
+                  <div class="key key-caps rounded-md p-3 m-1 text-center font-medium" data-key="CapsLock">Caps Lock</div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyA">a <span class="eng">a</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyS">s <span class="eng">s</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyD">d <span class="eng">d</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyF">f <span class="eng">f</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyG">g <span class="eng">g</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyH">h <span class="eng">h</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyJ">j <span class="eng">j</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyK">k <span class="eng">k</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyL">l <span class="eng">l</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Semicolon">; <span class="eng">;</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Quote">' <span class="eng">'</span></div>
+                  <div class="key key-enter rounded-md p-3 m-1 text-center font-medium" data-key="Enter">Enter</div>
+              </div>
+              <!-- Row 4 -->
+              <div class="row flex justify-center mb-1 w-full">
+                  <div class="key key-shift rounded-md p-3 m-1 text-center font-medium" data-key="ShiftLeft">Shift</div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyZ">z <span class="eng">z</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyX">x <span class="eng">x</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyC">c <span class="eng">c</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyV">v <span class="eng">v</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyB">b <span class="eng">b</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyN">n <span class="eng">n</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="KeyM">m <span class="eng">m</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Comma">, <span class="eng">,</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Period">. <span class="eng">.</span></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium khema" data-key="Slash">/ <span class="eng">/</span></div>
+                  <div class="key key-shift rounded-md p-3 m-1 text-center font-medium" data-key="ShiftRight">Shift</div>
+              </div>
+              <!-- Row 5 -->
+              <div class="row flex justify-center w-full">
+                  <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="ControlLeft">Ctrl</div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="AltLeft">Alt</div>
+                  <div class="key key-space rounded-md p-3 m-1 text-center font-medium" data-key="Space"></div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="AltRight">Alt</div>
+                  <div class="key rounded-md p-3 m-1 text-center font-medium" data-key="ControlRight">Ctrl</div>
+              </div>
+          </div>
 
-    </main>
+      </main>
 
-    <script src="js/typing.js"></script>
+      <script src="js/typing.js"></script>
 
-</body>
-</html>
+  </body>
+  </html>
