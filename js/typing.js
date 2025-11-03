@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const outputDisplay = document.getElementById('output-display');
+  const outputTextArea = document.getElementById('output-textarea');
   const keys = document.querySelectorAll('.key');
   const clearButton = document.getElementById('clear-button');
   const cursor = document.getElementById('cursor'); // Get cursor
   const shiftToggleBtn = document.getElementById('shift-toggle-button'); // Get shift toggle button
+  const copyText = document.getElementById('copy-text');
 
   // Create a map for quick lookup of keys by their 'data-key' (which corresponds to event.code)
   const keyMap = new Map();
@@ -28,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (char.length === 1) {
           // Normal character keys (a, b, 1, 2, $, %, etc.)
           const textNode = document.createTextNode(char);
-          outputDisplay.insertBefore(textNode, cursor);
+          outputTextArea.insertBefore(textNode, cursor);
       } else if (e.code === 'Backspace') {
           // Handle Backspace
           const lastNode = cursor.previousSibling;
@@ -36,27 +37,27 @@ document.addEventListener('DOMContentLoaded', () => {
               if (lastNode.textContent.length > 1) {
                   lastNode.textContent = lastNode.textContent.slice(0, -1);
               } else {
-                  outputDisplay.removeChild(lastNode);
+                  outputTextArea.removeChild(lastNode);
               }
           } else if (lastNode && lastNode.tagName === 'BR') {
-              outputDisplay.removeChild(lastNode);
+              outputTextArea.removeChild(lastNode);
           }
       } else if (e.code === 'Space') {
           // Handle Space
           const textNode = document.createTextNode(' ');
-          outputDisplay.insertBefore(textNode, cursor);
+          outputTextArea.insertBefore(textNode, cursor);
       } else if (e.code === 'Enter') {
           // Handle Enter
           const br = document.createElement('br');
-          outputDisplay.insertBefore(br, cursor);
+          outputTextArea.insertBefore(br, cursor);
       } else if (e.code === 'Tab') {
           // Handle Tab (insert 4 spaces)
           const textNode = document.createTextNode('    ');
-          outputDisplay.insertBefore(textNode, cursor);
+          outputTextArea.insertBefore(textNode, cursor);
       }
 
       // Auto-scroll to the bottom of the output display
-      outputDisplay.scrollTop = outputDisplay.scrollHeight;
+      outputTextArea.scrollTop = outputTextArea.scrollHeight;
   });
 
   // Handle key up event
@@ -158,32 +159,32 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const textNode = document.createTextNode(char);
-            outputDisplay.insertBefore(textNode, cursor);
+            outputTextArea.insertBefore(textNode, cursor);
           } else if (code === 'Backspace') {
               const lastNode = cursor.previousSibling;
               if (lastNode && lastNode.nodeType === Node.TEXT_NODE) {
                   if (lastNode.textContent.length > 1) {
                       lastNode.textContent = lastNode.textContent.slice(0, -1);
                   } else {
-                      outputDisplay.removeChild(lastNode);
+                      outputTextArea.removeChild(lastNode);
                   }
               } else if (lastNode && lastNode.tagName === 'BR') {
-                  outputDisplay.removeChild(lastNode);
+                  outputTextArea.removeChild(lastNode);
               }
           } else if (code === 'Space') {
               // 'char' is ' ' but we check 'code' for clarity
               const textNode = document.createTextNode(' ');
-              outputDisplay.insertBefore(textNode, cursor);
+              outputTextArea.insertBefore(textNode, cursor);
           } else if (code === 'Enter') {
               const br = document.createElement('br');
-              outputDisplay.insertBefore(br, cursor);
+              outputTextArea.insertBefore(br, cursor);
           } else if (code === 'Tab') {
               const textNode = document.createTextNode('    ');
-              outputDisplay.insertBefore(textNode, cursor);
+              outputTextArea.insertBefore(textNode, cursor);
           }
 
           // Auto-scroll to the bottom
-          outputDisplay.scrollTop = outputDisplay.scrollHeight;
+          outputTextArea.scrollTop = outputTextArea.scrollHeight;
       };
 
       const handleRelease = () => {
@@ -203,8 +204,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- NEW: Add click listener for clear button ---
   clearButton.addEventListener('click', () => {
       // Remove all children except the cursor
-      while (outputDisplay.firstChild && outputDisplay.firstChild !== cursor) {
-          outputDisplay.removeChild(outputDisplay.firstChild);
+      while (outputTextArea.firstChild && outputTextArea.firstChild !== cursor) {
+          outputTextArea.removeChild(outputTextArea.firstChild);
       }
       window.focus(); // Re-focus the window to continue typing
   });
@@ -223,11 +224,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-
   // Focus the window to start capturing keys immediately
   window.focus();
+
   // Optional: Click anywhere to focus
   document.body.addEventListener('click', () => {
-      window.focus();
+    window.focus();
+  });
+
+  // copy button
+  copyText.addEventListener("click", function() {
+    var text = outputTextArea.innerText;
+    navigator.clipboard.writeText(text).then(function() {
+      copyText.innerText = "Copied!";
+      copyText.classList.add("copied");
+      setTimeout(()=>{
+        copyText.classList.remove("copied");
+        copyText.innerHTML = '📋 Copy Code';
+      }, 3000);
+    }, function(err) {
+      console.error("Could not copy text: ", err);
+    });
   });
 });

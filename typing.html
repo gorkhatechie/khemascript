@@ -3,7 +3,7 @@
   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Simple Typing Test</title>
+      <title>Khema Script Typing</title>
       <!-- Load Tailwind CSS -->
       <script src="https://cdn.tailwindcss.com"></script>
 
@@ -75,11 +75,14 @@
   <body class="bg-gray-900 text-white min-h-screen flex items-center justify-center p-4">
 
       <main class="w-full max-w-4xl flex flex-col items-center">
-          <h1 class="text-4xl font-bold mb-6 text-blue-300">Simple Typing Test</h1>
+          <h1 class="text-4xl font-bold mb-6 text-blue-300">Khema Script Typing</h1>
 
           <!-- Output Display -->
           <div id="output-display" class="w-full max-w-5xl min-h-[120px] bg-gray-800 border-2 border-gray-600 rounded-lg p-4 text-xl font-mono mb-8 shadow-inner overflow-auto">
-            <span id="cursor" class="cursor"></span>
+            <button id="copy-text" class="copy-text">📝Copy Code</button>
+            <div id="output-textarea" class="output-textarea">
+              <span id="cursor" class="cursor"></span>
+            </div>
           </div>
 
           <div class="w-full max-w-5xl flex justify-between items-center mb-2">
